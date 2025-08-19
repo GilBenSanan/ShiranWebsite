@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Ofir Shiran</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="accessibility.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Load translations first -->
+    <script src="translations.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <!-- Language Toggle -->
+    <div class="privacy-lang-toggle">
+        <button class="lang-btn" onclick="toggleLanguage(); dispatchEvent(new Event('languageChanged'));" aria-label="Toggle language">
+            <span class="lang-text" data-translate="nav.language"></span>
+        </button>
+    </div>
+
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls" role="group" aria-label="Accessibility controls">
+        <div class="a11y-group">
+            <span class="a11y-group-label" data-translate="accessibility.fontSizeLabel">FONT SIZE</span>
+            <div class="a11y-btn-group">
+                <button class="a11y-btn font-size-btn" onclick="adjustFontSize('increase')" aria-label="Increase font size">A+</button>
+                <button class="a11y-btn font-size-btn" onclick="adjustFontSize('reset')" aria-label="Reset font size">A</button>
+                <button class="a11y-btn font-size-btn" onclick="adjustFontSize('decrease')" aria-label="Decrease font size">A-</button>
+            </div>
+        </div>
+        <div class="a11y-group">
+            <span class="a11y-group-label" data-translate="accessibility.displayLabel">DISPLAY</span>
+            <div class="a11y-btn-group">
+                <button class="a11y-btn" onclick="toggleHighContrast()" aria-label="Toggle high contrast">
+                    <i class="fas fa-circle-half-stroke" aria-hidden="true"></i>
+                </button>
+                <button class="a11y-btn" onclick="toggleReducedMotion()" aria-label="Toggle reduced motion">
+                    <i class="fas fa-person-running" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container privacy-container">
+        <h1 data-translate="privacy.heading"></h1>
+        <p data-translate="privacy.lastUpdated"></p>
+
+        <section>
+            <h2 data-translate="privacy.section1.title"></h2>
+            <p data-translate="privacy.section1.intro"></p>
+            <ul>
+                <li data-translate="privacy.section1.items.fullName"></li>
+                <li data-translate="privacy.section1.items.email"></li>
+                <li data-translate="privacy.section1.items.message"></li>
+                <li data-translate="privacy.section1.items.subject"></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-translate="privacy.section2.title"></h2>
+            <p data-translate="privacy.section2.intro"></p>
+            <ul>
+                <li data-translate="privacy.section2.items.inquiries"></li>
+                <li data-translate="privacy.section2.items.bookings"></li>
+                <li data-translate="privacy.section2.items.info"></li>
+                <li data-translate="privacy.section2.items.improve"></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-translate="privacy.section3.title"></h2>
+            <p data-translate="privacy.section3.intro"></p>
+            <ul>
+                <li data-translate="privacy.section3.items.language"></li>
+                <li data-translate="privacy.section3.items.session"></li>
+                <li data-translate="privacy.section3.items.accessibility"></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-translate="privacy.section4.title"></h2>
+            <p data-translate="privacy.section4.intro"></p>
+            <ul>
+                <li data-translate="privacy.section4.items.emailjs"></li>
+                <li data-translate="privacy.section4.items.fonts"></li>
+                <li data-translate="privacy.section4.items.icons"></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-translate="privacy.section5.title"></h2>
+            <p data-translate="privacy.section5.intro"></p>
+            <ul>
+                <li data-translate="privacy.section5.items.https"></li>
+                <li data-translate="privacy.section5.items.csp"></li>
+                <li data-translate="privacy.section5.items.retention"></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-translate="privacy.section6.title"></h2>
+            <p data-translate="privacy.section6.intro"></p>
+            <ul>
+                <li data-translate="privacy.section6.items.access"></li>
+                <li data-translate="privacy.section6.items.correction"></li>
+                <li data-translate="privacy.section6.items.deletion"></li>
+                <li data-translate="privacy.section6.items.withdraw"></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-translate="privacy.section7.title"></h2>
+            <p data-translate="privacy.section7.intro"></p>
+            <p data-translate="privacy.section7.email"></p>
+        </section>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Define updateContent function first
+        function updateContent() {
+            console.log('Running updateContent with language:', currentLang);
+            if (!window.translations || !window.translations[currentLang]) {
+                console.error('Translations not found for language:', currentLang);
+                return;
+            }
+
+            const elements = document.querySelectorAll('[data-translate]');
+            console.log('Found elements to translate:', elements.length);
+
+            elements.forEach(element => {
+                const path = element.getAttribute('data-translate');
+                const keys = path.split('.');
+                let translation = window.translations[currentLang];
+                
+                for (const key of keys) {
+                    if (translation && translation.hasOwnProperty(key)) {
+                        translation = translation[key];
+                    } else {
+                        console.warn(`Translation not found for path: ${path}`);
+                        return;
+                    }
+                }
+                
+                if (translation) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translation;
+                    } else {
+                        element.textContent = translation;
+                    }
+                    console.log(`Updated element with path ${path}:`, translation);
+                }
+            });
+        }
+
+        // Initialize global variable and translations object
+        window.currentLang = 'en';
+        
+        // Debug check for translations
+        console.log('Initial translations check:', window.translations);
+        
+        // Initialize translations
+        function initializeTranslations() {
+            console.log('Initializing translations...');
+            
+            // Get language from localStorage or URL
+            const urlParams = new URLSearchParams(window.location.search);
+            currentLang = urlParams.get('lang') || 
+                         localStorage.getItem('preferredLanguage') || 
+                         'en';
+            
+            console.log('Current language:', currentLang);
+            
+            // Update HTML lang attribute and RTL
+            document.documentElement.lang = currentLang;
+            document.body.classList.toggle('rtl', currentLang === 'he');
+            
+            // Update content
+            if (window.translations && window.translations[currentLang]) {
+                updateContent();
+                console.log('Content updated successfully');
+            } else {
+                console.error('Translations not found:', window.translations);
+            }
+        }
+
+        // Call initialization on both DOMContentLoaded and immediately
+        document.addEventListener('DOMContentLoaded', initializeTranslations);
+        
+        // Also try to initialize immediately in case DOM is already loaded
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initializeTranslations();
+        }
+
+        // Override toggleLanguage for the privacy policy page
+        function toggleLanguage() {
+            console.log('Toggling language...');
+            currentLang = currentLang === 'en' ? 'he' : 'en';
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', currentLang);
+            
+            // Update URL without reload
+            const url = new URL(window.location);
+            url.searchParams.set('lang', currentLang);
+            window.history.pushState({}, '', url);
+            
+            // Update HTML lang attribute and RTL
+            document.documentElement.lang = currentLang;
+            document.body.classList.toggle('rtl', currentLang === 'he');
+            
+            // Update content
+            updateContent();
+            console.log('Language toggled to:', currentLang);
+        }
+    </script>
+</body>
+</html>

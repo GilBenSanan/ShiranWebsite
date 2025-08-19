@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="meta.title"></title>
+    <meta name="description" data-translate="meta.description" content="">
+    
+    <!-- Language alternates -->
+    <link rel="alternate" hreflang="en" href="?lang=en">
+    <link rel="alternate" hreflang="he" href="?lang=he">
+    <link rel="alternate" hreflang="x-default" href="?lang=he">
+    
+    <!-- Privacy and Security -->
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https: 'unsafe-inline'; style-src 'self' https: 'unsafe-inline'; img-src 'self' data: https:;">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="accessibility.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preload accessibility resources -->
+    <link rel="preload" href="accessibility.css" as="style">
+    <link rel="preload" href="accessibility-toolbar.js" as="script">
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/opendyslexic" as="style">
+</head>
+<body>
+    <!-- Screen reader announcements -->
+    <div id="a11y-status" role="status" aria-live="polite" class="visually-hidden"></div>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link" data-translate="accessibility.skipToContent"></a>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent" class="cookie-banner" role="alert">
+        <p>
+            <span data-translate="cookieConsent.message"></span>
+            <a href="privacy-policy.html" target="_blank" data-translate="cookieConsent.learnMore"></a>
+        </p>
+        <button onclick="acceptCookies()" class="btn btn-primary" data-translate="cookieConsent.accept"></button>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navigation" class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-brain logo-icon" aria-hidden="true"></i><span data-translate="nav.logo"></span></h2>
+                <div class="logo-controls">
+                    <button class="lang-btn" onclick="toggleLanguage()" aria-label="Toggle language">
+                        <span class="lang-text" data-translate="nav.language"></span>
+                    </button>
+                    <div class="accessibility-controls" role="group" aria-label="Accessibility controls">
+                        <button class="a11y-toggle-btn" onclick="toggleA11yMenu()" aria-label="Accessibility options" aria-expanded="false">
+                            <i class="fas fa-universal-access" aria-hidden="true"></i>
+                        </button>
+                        <div class="a11y-overlay" id="a11yOverlay" role="dialog" aria-labelledby="accessibility-title" aria-describedby="accessibility-instructions">
+                            <div class="a11y-overlay-content">
+                                <div class="a11y-header">
+                                    <h3 id="accessibility-title" data-translate="accessibility.title"></h3>
+                                    <button class="a11y-close" onclick="toggleA11yMenu()" aria-label="Close accessibility menu">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="a11y-instructions">
+                                    <p id="accessibility-instructions" data-translate="accessibility.instructions"></p>
+                                    <p class="keyboard-shortcuts">
+                                        <strong data-translate="accessibility.keyboardShortcuts"></strong>
+                                    </p>
+                                </div>
+                                <div class="a11y-options">
+                                    <div class="a11y-option">
+                                        <div class="a11y-option-info">
+                                            <i class="fas fa-volume-up"></i>
+                                            <span data-translate="accessibility.options.screenReader"></span>
+                                        </div>
+                                        <label class="toggle-switch" for="screenReaderToggle">
+                                            <input type="checkbox" id="screenReaderToggle" aria-describedby="screenReaderToggle-desc">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="a11y-option">
+                                        <div class="a11y-option-info">
+                                            <i class="fas fa-keyboard"></i>
+                                            <span data-translate="accessibility.options.keyboard"></span>
+                                        </div>
+                                        <label class="toggle-switch" for="keyboardToggle">
+                                            <input type="checkbox" id="keyboardToggle" aria-describedby="keyboardToggle-desc">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="a11y-option">
+                                        <div class="a11y-option-info">
+                                            <i class="fas fa-circle-half-stroke"></i>
+                                            <span data-translate="accessibility.options.contrast"></span>
+                                        </div>
+                                        <label class="toggle-switch" for="contrastToggle">
+                                            <input type="checkbox" id="contrastToggle" onchange="toggleHighContrast()" aria-describedby="contrastToggle-desc">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="a11y-option">
+                                        <div class="a11y-option-info">
+                                            <i class="fas fa-adjust"></i>
+                                            <span data-translate="accessibility.options.grayscale"></span>
+                                        </div>
+                                        <label class="toggle-switch" for="grayscaleToggle">
+                                            <input type="checkbox" id="grayscaleToggle" aria-describedby="grayscaleToggle-desc">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="a11y-option">
+                                        <div class="a11y-option-info">
+                                            <i class="fas fa-pause-circle"></i>
+                                            <span data-translate="accessibility.options.motion"></span>
+                                        </div>
+                                        <label class="toggle-switch" for="motionToggle">
+                                            <input type="checkbox" id="motionToggle" onchange="toggleReducedMotion()" aria-describedby="motionToggle-desc">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="a11y-option">
+                                        <div class="a11y-option-info">
+                                            <i class="fas fa-search-plus"></i>
+                                            <span data-translate="accessibility.options.magnify"></span>
+                                        </div>
+                                        <div class="font-size-controls">
+                                            <button class="a11y-btn" onclick="adjustFontSize('decrease')" aria-label="Decrease font size" title="Decrease font size">A-</button>
+                                            <button class="a11y-btn" onclick="adjustFontSize('reset')" aria-label="Reset font size" title="Reset font size">A</button>
+                                            <button class="a11y-btn" onclick="adjustFontSize('increase')" aria-label="Increase font size" title="Increase font size">A+</button>
+                                        </div>
+                                    </div>
+                                    <div class="a11y-option">
+                                        <div class="a11y-option-info">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span data-translate="accessibility.options.help"></span>
+                                        </div>
+                                        <label class="toggle-switch" for="helpToggle">
+                                            <input type="checkbox" id="helpToggle" aria-describedby="helpToggle-desc">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="a11y-actions">
+                                    <button class="a11y-apply-btn" onclick="applyAccessibilitySettings()" data-translate="accessibility.apply"></button>
+                                </div>
+                                <div class="a11y-footer">
+                                    <a href="#" class="a11y-link" data-translate="accessibility.feedback"></a>
+                                    <a href="#" class="a11y-link" data-translate="accessibility.statement"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li class="nav-item" role="none"><a href="#home" class="nav-link" role="menuitem" data-translate="nav.home"></a></li>
+                <li class="nav-item" role="none"><a href="#about" class="nav-link" role="menuitem" data-translate="nav.about"></a></li>
+                <li class="nav-item" role="none"><a href="#lectures" class="nav-link" role="menuitem" data-translate="nav.lectures"></a></li>
+                <li class="nav-item" role="none"><a href="#gallery" class="nav-link" role="menuitem" data-translate="nav.gallery"></a></li>
+                <li class="nav-item" role="none"><a href="#publications" class="nav-link" role="menuitem" data-translate="nav.publications"></a></li>
+                <li class="nav-item" role="none"><a href="#testimonials" class="nav-link" role="menuitem" data-translate="nav.testimonials"></a></li>
+                <li class="nav-item" role="none"><a href="#contact" class="nav-link" role="menuitem" data-translate="nav.contact"></a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Start -->
+    <main id="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-tagline" dir="auto" data-translate="hero.title"></p>
+                <h1 class="hero-main-title" data-translate="hero.name"></h1>
+                <p class="hero-subtitle" data-translate="hero.subtitle"></p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary book-lecture-btn" data-translate="hero.bookLecture"></a>
+                </div>
+            </div>
+            <div class="hero-photo-section">
+                <div class="professional-photo">
+                                         <img src="shiran.png" alt="Ofir Shiran - Neuroscience Lecturer" data-translate="contact.profileImage.alt" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="about.title"></h2>
+                <p data-translate="about.subtitle"></p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-translate="about.journeyTitle"></h3>
+                    <p data-translate="about.journeyText"></p>
+                    
+                    <p data-translate="about.backgroundText"></p>
+                    
+                    <div class="expertise-areas">
+                        <h4 data-translate="about.expertiseTitle"></h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="about.expertise.1"></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="about.expertise.2"></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="about.expertise.3"></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-translate="about.expertise.4"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-translate="about.stats.studentsNumber">500+</div>
+                        <div class="stat-label" data-translate="about.stats.studentsTaught"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-translate="about.stats.lecturesNumber">50+</div>
+                        <div class="stat-label" data-translate="about.stats.lecturesDelivered"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-translate="about.stats.institutionsNumber">15+</div>
+                        <div class="stat-label" data-translate="about.stats.institutions"></div>
+                    </div>
+                </div>
+                
+                <!-- Educational Institutions Section -->
+                <div class="educational-institutions">
+                    <div class="institutions-grid">
+                        <div class="institution-item">
+                            <div class="institution-icon">
+                                <img src="institutions/tau.png" alt="Tel Aviv University" class="institution-logo">
+                            </div>
+                            <span class="institution-name" data-translate="about.institutions.tau"></span>
+                        </div>
+                        <div class="institution-item">
+                            <div class="institution-icon">
+                                <img src="institutions/dav.png" alt="Davidson Institute" class="institution-logo">
+                            </div>
+                            <span class="institution-name" data-translate="about.institutions.davidson"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lectures Section -->
+    <section id="lectures" class="lectures">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="lectures.title"></h2>
+                <p data-translate="lectures.subtitle"></p>
+            </div>
+            <div class="lectures-slider-container">
+                <button class="slider-nav-button prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="lectures-slider">
+                    <div class="lecture-card">
+                        <div class="lecture-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <h3 data-translate="lectures.cards.memory.title"></h3>
+                        <p data-translate="lectures.cards.memory.description"></p>
+                        <div class="lecture-details">
+                            <span class="audience"><i class="fas fa-users"></i> <span data-translate="lectures.cards.memory.audience"></span></span>
+                            <span class="format"><i class="fas fa-laptop"></i> <span data-translate="lectures.cards.memory.format"></span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="lecture-card">
+                        <div class="lecture-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 data-translate="lectures.cards.brain.title"></h3>
+                        <p data-translate="lectures.cards.brain.description"></p>
+                        <div class="lecture-details">
+                            <span class="audience"><i class="fas fa-users"></i> <span data-translate="lectures.cards.brain.audience"></span></span>
+                            <span class="format"><i class="fas fa-laptop"></i> <span data-translate="lectures.cards.brain.format"></span></span>
+                        </div>
+                    </div>
+                    
+
+                    <div class="lecture-card">
+                        <div class="lecture-icon">
+                            <i class="fas fa-lightbulb1"></i>
+                        </div>
+                        <h3 data-translate="lectures.cards.memoryLife.title"></h3>
+                        <p data-translate="lectures.cards.memoryLife.description"></p>
+                        <div class="lecture-details">
+                            <span class="audience"><i class="fas fa-users"></i> <span data-translate="lectures.cards.memoryLife.audience"></span></span>
+                            <span class="format"><i class="fas fa-laptop"></i> <span data-translate="lectures.cards.memoryLife.format"></span></span>
+                        </div>
+                    </div>
+
+
+                    <div class="lecture-card">
+                        <div class="lecture-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 data-translate="lectures.cards.neuroplasticity.title"></h3>
+                        <p data-translate="lectures.cards.neuroplasticity.description"></p>
+                        <div class="lecture-details">
+                            <span class="audience"><i class="fas fa-users"></i> <span data-translate="lectures.cards.neuroplasticity.audience"></span></span>
+                            <span class="format"><i class="fas fa-laptop"></i> <span data-translate="lectures.cards.neuroplasticity.format"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-nav-button next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="gallery.title"></h2>
+                <p data-translate="gallery.subtitle"></p>
+            </div>
+            <div class="gallery-content">
+                <!-- Photos Grid -->
+                <div class="gallery-grid photos active">
+                    <button class="gallery-nav-button prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="gallery-slider" id="photos-grid">
+                        <!-- Photos will be dynamically loaded here -->
+                    </div>
+                    <button class="gallery-nav-button next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="publications.title"></h2>
+                <p data-translate="publications.subtitle"></p>
+            </div>
+            <div class="slider-container publications-slider-container">
+                <button class="slider-nav-button prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider publications-slider">
+                    <div class="publication-card">
+                        <div class="publication-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 data-translate="publications.cards.memory.title"></h3>
+                        <p data-translate="publications.cards.memory.description"></p>
+                        <div class="publication-meta">
+                            <span class="publication-type"><i class="fas fa-newspaper"></i> <span data-translate="publications.cards.memory.type"></span></span>
+                            <span class="publication-source" data-translate="publications.cards.memory.source"></span>
+                        </div>
+                        <a href="https://davidson.org.il/read-experience/sciencenews//%d7%98%d7%a4%d7%a9%d7%aa-%d7%94%d7%99%d7%a8%d7%99%d7%95%d7%9f-%d7%9c%d7%90-%d7%91%d7%93%d7%99%d7%95%d7%a7-%d7%9e%d7%94-%d7%a9%d7%97%d7%a9%d7%91%d7%aa%d7%9f/" target="_blank" class="btn btn-secondary" data-translate="publications.readMore"></a>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 data-translate="publications.cards.learning.title"></h3>
+                        <p data-translate="publications.cards.learning.description"></p>
+                        <div class="publication-meta">
+                            <span class="publication-type"><i class="fas fa-newspaper"></i> <span data-translate="publications.cards.learning.type"></span></span>
+                            <span class="publication-source" data-translate="publications.cards.learning.source"></span>
+                        </div>
+                        <a href="https://davidson.org.il/read-experience/sciencenews//%d7%a4%d7%99%d7%99%d7%a7-%d7%97%d7%99%d7%95%d7%9a/" target="_blank" class="btn btn-secondary" data-translate="publications.readMore"></a>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3 data-translate="publications.cards.consumer.title"></h3>
+                        <p data-translate="publications.cards.consumer.description"></p>
+                        <div class="publication-meta">
+                            <span class="publication-type"><i class="fas fa-question"></i> <span data-translate="publications.cards.consumer.type"></span></span>
+                            <span class="publication-source" data-translate="publications.cards.consumer.source"></span>
+                        </div>
+                        <a href="https://davidson.org.il/read-experience/askexpert//%d7%91%d7%90-%d7%9c%d7%99-%d7%a9%d7%95%d7%a4%d7%99%d7%a0%d7%92-%d7%94%d7%a6%d7%a6%d7%94-%d7%9c%d7%9e%d7%95%d7%97%d7%9d-%d7%a9%d7%9c-%d7%a6%d7%a8%d7%9b%d7%a0%d7%99%d7%9d/" target="_blank" class="btn btn-secondary" data-translate="publications.readMore"></a>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 data-translate="publications.cards.research.title"></h3>
+                        <p data-translate="publications.cards.research.description"></p>
+                        <div class="publication-meta">
+                            <span class="publication-type"><i class="fas fa-newspaper"></i> <span data-translate="publications.cards.research.type"></span></span>
+                            <span class="publication-source" data-translate="publications.cards.research.source"></span>
+                        </div>
+                        <a href="https://davidson.org.il/read-experience/askexpert//%d7%91%d7%90-%d7%9c%d7%99-%d7%a9%d7%95%d7%a4%d7%99%d7%a0%d7%92-%d7%94%d7%a6%d7%a6%d7%94-%d7%9c%d7%9e%d7%95%d7%97%d7%9d-%d7%a9%d7%9c-%d7%a6%d7%a8%d7%9b%d7%a0%d7%99%d7%9d/" target="_blank" class="btn btn-secondary" data-translate="publications.readMore"></a>
+                    </div>
+                </div>
+                <button class="slider-nav-button next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="testimonials.title"></h2>
+                <p data-translate="testimonials.subtitle"></p>
+            </div>
+            <div class="slider-container testimonials-slider-container">
+                <button class="slider-nav-button prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p data-translate="testimonials.cards.sarah.content"></p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 data-translate="testimonials.cards.sarah.author"></h4>
+                                <span data-translate="testimonials.cards.sarah.role"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p data-translate="testimonials.cards.rachel.content"></p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 data-translate="testimonials.cards.rachel.author"></h4>
+                                <span data-translate="testimonials.cards.rachel.role"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p data-translate="testimonials.cards.david.content"></p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 data-translate="testimonials.cards.david.author"></h4>
+                                <span data-translate="testimonials.cards.david.role"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p data-translate="testimonials.cards.emma.content"></p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 data-translate="testimonials.cards.emma.author"></h4>
+                                <span data-translate="testimonials.cards.emma.role"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-nav-button next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="contact.title"></h2>
+                <p data-translate="contact.subtitle"></p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-translate="contact.info.title"></h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span data-translate="contact.info.email"></span>
+                    </div>
+                    <div class="contact-item phone-number">
+                        <i class="fas fa-phone"></i>
+                        <span class="phone-parts">
+                            <span class="phone-text" data-translate="contact.phone.country"></span>
+                            <span class="phone-separator" data-translate="contact.phone.separator">-</span>
+                            <span class="phone-text" data-translate="contact.phone.area"></span>
+                            <span class="phone-separator" data-translate="contact.phone.separator">-</span>
+                            <span class="phone-text" data-translate="contact.phone.number"></span>
+                            <span class="phone-plus" data-translate="contact.phone.plus">+</span>
+                        </span>
+                    </div>
+                    <div class="social-links">
+                        <h4 data-translate="contact.social.title"></h4>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/gil-elkabetz-0b300850/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://x.com/gilbensanan" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Twitter profile">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.facebook.com/gil.bensanan" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook profile">
+                                <i class="fab fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.instagram.com/gilutzz/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm" role="form" aria-label="Contact form">
+                        <div class="form-group">
+                            <label for="name" data-translate="contact.form.fullName"></label>
+                            <input type="text" id="name" name="name" required 
+                                   aria-required="true"
+                                   autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="contact.form.email"></label>
+                            <input type="email" id="email" name="email" required 
+                                   aria-required="true"
+                                   autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-translate="contact.form.subject"></label>
+                            <select id="subject" name="subject" required 
+                                    aria-required="true">
+                                <option value="" data-translate="contact.form.selectTopic"></option>
+                                <option value="lecture-booking" data-translate="contact.form.options.lecture"></option>
+                                <option value="workshop-inquiry" data-translate="contact.form.options.workshop"></option>
+                                <option value="general-question" data-translate="contact.form.options.question"></option>
+                                <option value="collaboration" data-translate="contact.form.options.collaboration"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-translate="contact.form.message"></label>
+                            <textarea id="message" name="message" rows="5" required 
+                                    aria-required="true"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-translate="contact.form.send"></button>
+                        <div id="form-status" role="status" aria-live="polite" class="visually-hidden"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="footer.name"></h3>
+                    <p data-translate="footer.description"></p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer.quickLinks.title"></h4>
+                    <ul>
+                        <li><a href="#home" data-translate="nav.home"></a></li>
+                        <li><a href="#about" data-translate="nav.about"></a></li>
+                        <li><a href="#lectures" data-translate="nav.lectures"></a></li>
+                        <li><a href="#publications" data-translate="nav.publications"></a></li>
+                        <li><a href="#contact" data-translate="nav.contact"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer.services.title"></h4>
+                    <ul>
+                        <li data-translate="footer.services.memory"></li>
+                        <li data-translate="footer.services.anatomy"></li>
+                        <li data-translate="footer.services.research"></li>
+                        <li data-translate="footer.services.online"></li>
+                        <li data-translate="footer.services.consulting"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="footer.copyright"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("mxIT6YNnZRUu0l7Eh"); // Your EmailJS public key
+        })();
+    </script>
+    <script src="translations.js"></script>
+    <script src="gallery-config.js"></script>
+    <script src="script.js"></script>
+    <script src="accessibility-toolbar.js"></script>
+    <script src="accessibility-shortcuts.js"></script>
+    
+    <!-- Initial accessibility announcement -->
+    <div id="initial-announcement" role="status" aria-live="polite" class="visually-hidden">
+        <span data-translate="accessibility.welcomeMessage"></span>
+    </div>
+</body>
+</html> 
