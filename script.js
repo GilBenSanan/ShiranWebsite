@@ -293,7 +293,7 @@ function loadAccessibilityPreferences() {
     }
 }
 
-// Accessibility overlay toggle
+// Accessibility overlay toggle - now hamburger style slide-out
 function toggleA11yMenu() {
     const overlay = document.getElementById('a11yOverlay');
     const button = document.querySelector('.a11y-toggle-btn');
@@ -308,29 +308,20 @@ function toggleA11yMenu() {
     }
     
     // Check if overlay is currently visible
-    const isVisible = overlay.style.display === 'block' || 
-                     overlay.classList.contains('show') || 
-                     overlay.style.opacity === '1' ||
-                     overlay.style.visibility === 'visible';
+    const isVisible = overlay.classList.contains('show');
     
     if (isVisible) {
-        // Hide overlay
-        overlay.style.display = 'none';
+        // Hide overlay - slide out to the right
         overlay.classList.remove('show');
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
         button.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = 'auto';
-        console.log('Overlay hidden');
+        console.log('Overlay hidden - slid out');
     } else {
-        // Show overlay
-        overlay.style.display = 'flex';
+        // Show overlay - slide in from the right
         overlay.classList.add('show');
-        overlay.style.opacity = '1';
-        overlay.style.visibility = 'visible';
         button.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
-        console.log('Overlay shown');
+        console.log('Overlay shown - slid in');
     }
 }
 
@@ -800,10 +791,7 @@ function ensureOverlayHidden() {
     const overlay = document.getElementById('a11yOverlay');
     if (overlay) {
         console.log('Ensuring overlay is hidden on page load');
-        overlay.style.display = 'none';
         overlay.classList.remove('show');
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
         
         // Also ensure the button state is correct
         const button = document.querySelector('.a11y-toggle-btn');
@@ -853,17 +841,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     subjectSelect.value = 'lecture-booking';
                 }
             }
-        });
-    }
-    
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
         });
     }
     
@@ -1278,10 +1255,10 @@ function openLightbox(imageSrc) {
 
     
     function closeLightbox() {
-        lightbox.remove();
+            lightbox.remove();
         document.body.style.overflow = '';
         document.removeEventListener('keydown', handleEsc);
-    }
+        }
 }
 
 // Slider functionality
