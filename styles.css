@@ -1800,17 +1800,17 @@ body.rtl .stat-item {
 }
 
 .institution-icon {
-    width: 200px; /* Increased from 80px */
-    height: 100px; /* Increased from 80px */
+    width: 200px;
+    height: 100px;
     background: white;
-    border-radius: 8px; /* Reduced from 12px */
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.75rem; /* Reduced from 1rem */
+    margin-bottom: 0.75rem;
     transition: all 0.3s ease;
-    padding: 0.25rem; /* Reduced from 0.5rem */
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    padding: 0.25rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .institution-logo {
@@ -1867,6 +1867,55 @@ body.rtl .stat-item {
     .institution-icon {
         width: 60px;
         height: 60px;
+    }
+}
+
+/* Mobile institution icons - ensure consistent sizing and centering */
+@media (max-width: 768px) {
+    .institution-icon {
+        width: 200px !important;
+        height: 100px !important;
+        background: white !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 0.75rem !important;
+        transition: all 0.3s ease !important;
+        padding: 0.25rem !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .institution-logo {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .institution-icon {
+        width: 200px !important;
+        height: 100px !important;
+        background: white !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 0.75rem !important;
+        transition: all 0.3s ease !important;
+        padding: 0.25rem !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .institution-logo {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+        display: block !important;
     }
 }
 
@@ -4246,17 +4295,17 @@ body.rtl .stat-item {
 }
 
 .institution-icon {
-    width: 200px; /* Increased from 80px */
-    height: 100px; /* Increased from 80px */
+    width: 200px;
+    height: 100px;
     background: white;
-    border-radius: 8px; /* Reduced from 12px */
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.75rem; /* Reduced from 1rem */
+    margin-bottom: 0.75rem;
     transition: all 0.3s ease;
-    padding: 0.25rem; /* Reduced from 0.5rem */
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    padding: 0.25rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .institution-logo {

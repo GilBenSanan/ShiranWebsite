@@ -807,167 +807,38 @@ function ensureOverlayHidden() {
     }
 }
 
-// Initialize content
-document.addEventListener('DOMContentLoaded', () => {
-    checkCookieConsent();
-    setupKeyboardNavigation();
+// Initialize sliders when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing sliders...');
+    
+    // Update content with current language first
     updateContent();
-    loadGalleryItems(); // Ensure gallery is loaded
     
-    // Test accessibility features
-    testAccessibilityFeatures();
-    
-    // Ensure overlay is hidden after a short delay to prevent auto-opening
-    setTimeout(() => {
-        ensureOverlayHidden();
-        loadAccessibilityPreferences();
-    }, 100);
-
-    // Handle "Book a lecture" button click
-    const bookLectureBtn = document.querySelector('.book-lecture-btn');
-    if (bookLectureBtn) {
-        bookLectureBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const contactSection = document.querySelector('#contact');
-            const subjectSelect = document.querySelector('#subject');
-            if (contactSection) {
-                const headerHeight = 70;
-                const buffer = 30;
-                const offsetTop = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - buffer;
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                
-                // Set the dropdown to "Lecture Booking"
-                if (subjectSelect) {
-                    subjectSelect.value = 'lecture-booking';
-                }
-            }
-        });
-    }
-    
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerHeight = 70;
-                // Special handling for about section
-                if (target.id === 'about') {
-                    const aboutSection = document.querySelector('#about');
-                    const offsetTop = aboutSection.offsetTop - headerHeight;
-                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                    // Hide hero photo for about section
-                    const heroPhoto = document.querySelector('.hero-photo-section');
-                    if (heroPhoto) {
-                        heroPhoto.style.opacity = '0';
-                        heroPhoto.style.visibility = 'hidden';
-                        heroPhoto.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
-                    }
-                    return;
-                } else {
-                    // Show hero photo for other sections
-                    const heroPhoto = document.querySelector('.hero-photo-section');
-                    if (heroPhoto) {
-                        heroPhoto.style.opacity = '1';
-                        heroPhoto.style.visibility = 'visible';
-                    }
-                }
-                const buffer = 30;
-                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - buffer;
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-            }
-        });
-    });
-
-    // Contact form submission
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('form-status');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Disable form while submitting
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const formElements = contactForm.querySelectorAll('input, select, textarea, button');
-            formElements.forEach(el => el.disabled = true);
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
-            
-            // Get form values directly from elements
-            const formObject = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Debug log
-            console.log('Sending email with data:', formObject);
-            
-            // Validate form data before sending
-            if (!formObject.name || !formObject.email || !formObject.subject || !formObject.message) {
-                console.error('Form validation failed:', formObject);
-                formStatus.textContent = 'Please fill in all required fields.';
-                formStatus.className = 'form-status error';
-                formElements.forEach(el => el.disabled = false);
-                submitButton.textContent = translations[currentLang].contact.form.send;
-                return;
-            }
-
-            emailjs.send(
-                'service_79jc8ub',
-                'template_r5ryxqq',
-                {
-                    to_name: "Ofir Shiran",
-                    from_name: formObject.name,
-                    from_email: formObject.email,
-                    subject: formObject.subject,
-                    message: formObject.message,
-                    reply_to: formObject.email,
-                    contact_number: Math.random() * 100000 | 0
-                },
-                'mxIT6YNnZRUu0l7Eh'
-            ).then(
-                function() {
-                    formStatus.textContent = 'Message sent successfully!';
-                    formStatus.className = 'form-status success';
-                    contactForm.reset();
-                },
-                function(error) {
-                    console.error('Failed to send message:', error);
-                    formStatus.textContent = 'Failed to send message. Please try again.';
-                    formStatus.className = 'form-status error';
-                }
-            ).finally(() => {
-                // Re-enable form
-                formElements.forEach(el => el.disabled = false);
-                submitButton.textContent = translations[currentLang].contact.form.send;
-            });
-        });
-        
-        // Add error handling for required fields
-        contactForm.querySelectorAll('[required]').forEach(field => {
-            field.addEventListener('invalid', function(e) {
-                e.preventDefault();
-                this.classList.add('invalid');
-                
-                // Custom validation message
-                let fieldName = this.previousElementSibling.textContent;
-                this.setCustomValidity(`Please fill out the ${fieldName} field.`);
-            });
-            
-            field.addEventListener('input', function() {
-                this.classList.remove('invalid');
-                this.setCustomValidity('');
-            });
-        });
-    }
-
-    // Initialize sliders
     initializeSlider('.lectures-slider-container', '.lecture-card');
     initializeSlider('.publications-slider-container', '.publication-card');
     initializeSlider('.testimonials-slider-container', '.testimonial-card');
+    
+    // Setup keyboard navigation
+    setupKeyboardNavigation();
+    
+    // Check cookie consent
+    checkCookieConsent();
+    
+    // Load accessibility preferences
+    loadAccessibilityPreferences();
+    
+    // Load gallery items
     loadGalleryItems();
+});
+
+// Reinitialize sliders on window resize
+window.addEventListener('resize', function() {
+    console.log('Window resized, reinitializing sliders...');
+    setTimeout(() => {
+        initializeSlider('.lectures-slider-container', '.lecture-card');
+        initializeSlider('.publications-slider-container', '.publication-card');
+        initializeSlider('.testimonials-slider-container', '.testimonial-card');
+    }, 100);
 });
 
 // Gallery functionality
@@ -1263,91 +1134,117 @@ function openLightbox(imageSrc) {
 
 // Slider functionality
 function initializeSlider(containerSelector, slideSelector) {
-    const slider = document.querySelector(containerSelector + ' .slider') || 
-                  document.querySelector(containerSelector + ' .lectures-slider') ||
-                  document.querySelector(containerSelector + ' .gallery-slider');
-    const slides = document.querySelectorAll(containerSelector + ' ' + slideSelector);
-    const prevButton = document.querySelector(containerSelector + ' .prev');
-    const nextButton = document.querySelector(containerSelector + ' .next');
-
-    if (slider && slides.length > 0) {
-        const slideWidth = slides[0].offsetWidth + 32; // width + gap
-        const maxPosition = -(Math.max(0, slides.length - 3) * slideWidth);
-        
-        // Set initial position based on current language
-        const isRTL = document.documentElement.lang === 'he';
-        let currentPosition;
-        
-        if (isRTL) {
-            // In RTL mode, start from the rightmost position (showing last slides first)
-            currentPosition = maxPosition;
-            console.log('RTL initialization - starting from right, position:', currentPosition);
-            slider.style.transform = `translateX(${currentPosition}px)`;
-        } else {
-            // In LTR mode, start from the leftmost position (showing first slides first)
-            currentPosition = 0;
-            console.log('LTR initialization - starting from left, position:', currentPosition);
-        }
-
-        function updateNavButtons() {
-            const isRTL = document.documentElement.lang === 'he';
-            if (prevButton) {
-                const isPrevDisabled = isRTL ? currentPosition <= maxPosition : currentPosition === 0;
-                prevButton.style.opacity = isPrevDisabled ? '0.5' : '1';
-                prevButton.style.cursor = isPrevDisabled ? 'default' : 'pointer';
-            }
-            if (nextButton) {
-                const nextPosition = currentPosition - slideWidth;
-                const isNextDisabled = isRTL ? currentPosition === 0 : nextPosition < maxPosition;
-                nextButton.style.opacity = isNextDisabled ? '0.5' : '1';
-                nextButton.style.cursor = isNextDisabled ? 'default' : 'pointer';
-            }
-        }
-
-        function moveSlider(position) {
-            currentPosition = Math.max(maxPosition, Math.min(0, position));
-            slider.style.transform = `translateX(${currentPosition}px)`;
-            updateNavButtons();
-        }
-
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                const isRTL = document.documentElement.lang === 'he';
-                if (isRTL) {
-                    // In RTL, left button (prev button) moves to next slide (negative direction)
-                    const nextPosition = currentPosition - slideWidth;
-                    if (nextPosition >= maxPosition) {
-                        moveSlider(nextPosition);
-                    }
-                } else {
-                    // In LTR, prev button moves backward (positive direction)
-                    if (currentPosition < 0) {
-                        moveSlider(currentPosition + slideWidth);
-                    }
-                }
-            });
-        }
-
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                const isRTL = document.documentElement.lang === 'he';
-                if (isRTL) {
-                    // In RTL, right button (next button) moves to previous slide (positive direction)
-                    if (currentPosition < 0) {
-                        moveSlider(currentPosition + slideWidth);
-                    }
-                } else {
-                    // In LTR, next button moves forward (negative direction)
-                    const nextPosition = currentPosition - slideWidth;
-                    if (nextPosition >= maxPosition) {
-                        moveSlider(nextPosition);
-                    }
-                }
-            });
-        }
-
-        updateNavButtons();
+    const container = document.querySelector(containerSelector);
+    if (!container) {
+        console.log('Container not found:', containerSelector);
+        return;
     }
+
+    const slider = container.querySelector('.slider') || 
+                  container.querySelector('.lectures-slider') ||
+                  container.querySelector('.gallery-slider');
+    const slides = container.querySelectorAll(slideSelector);
+    const prevButton = container.querySelector('.prev');
+    const nextButton = container.querySelector('.next');
+
+    if (!slider || slides.length === 0) {
+        console.log('Slider or slides not found in:', containerSelector);
+        return;
+    }
+
+    console.log('Initializing slider for:', containerSelector, 'with', slides.length, 'slides');
+
+    // Check if we're on mobile (single slide visible)
+    const isMobile = window.innerWidth <= 768;
+    const visibleSlides = isMobile ? 1 : 3;
+    
+    const slideWidth = slides[0].offsetWidth + 32; // width + gap
+    const maxPosition = -(Math.max(0, slides.length - visibleSlides) * slideWidth);
+    
+    // Set initial position based on current language
+    const isRTL = document.documentElement.lang === 'he';
+    let currentPosition;
+    
+    if (isRTL) {
+        // In RTL mode, start from the rightmost position (showing last slides first)
+        currentPosition = maxPosition;
+        console.log('RTL initialization - starting from right, position:', currentPosition);
+        slider.style.transform = `translateX(${currentPosition}px)`;
+    } else {
+        // In LTR mode, start from the leftmost position (showing first slides first)
+        currentPosition = 0;
+        console.log('LTR initialization - starting from left, position:', currentPosition);
+    }
+
+    function updateNavButtons() {
+        const isRTL = document.documentElement.lang === 'he';
+        if (prevButton) {
+            const isPrevDisabled = isRTL ? currentPosition <= maxPosition : currentPosition === 0;
+            prevButton.style.opacity = isPrevDisabled ? '0.5' : '1';
+            prevButton.style.cursor = isPrevDisabled ? 'default' : 'pointer';
+            prevButton.disabled = isPrevDisabled;
+        }
+        if (nextButton) {
+            const nextPosition = currentPosition - slideWidth;
+            const isNextDisabled = isRTL ? currentPosition === 0 : nextPosition < maxPosition;
+            nextButton.style.opacity = isNextDisabled ? '0.5' : '1';
+            nextButton.style.cursor = isNextDisabled ? 'default' : 'pointer';
+            nextButton.disabled = isNextDisabled;
+        }
+    }
+
+    function moveSlider(position) {
+        currentPosition = Math.max(maxPosition, Math.min(0, position));
+        slider.style.transform = `translateX(${currentPosition}px)`;
+        updateNavButtons();
+        console.log('Slider moved to position:', currentPosition);
+    }
+
+    // Remove any existing event listeners
+    if (prevButton) {
+        prevButton.replaceWith(prevButton.cloneNode(true));
+        const newPrevButton = container.querySelector('.prev');
+        newPrevButton.addEventListener('click', () => {
+            const isRTL = document.documentElement.lang === 'he';
+            if (isRTL) {
+                // In RTL, left button (prev button) moves to next slide (negative direction)
+                const nextPosition = currentPosition - slideWidth;
+                if (nextPosition >= maxPosition) {
+                    moveSlider(nextPosition);
+                }
+            } else {
+                // In LTR, prev button moves backward (positive direction)
+                if (currentPosition < 0) {
+                    moveSlider(currentPosition + slideWidth);
+                }
+            }
+        });
+    }
+
+    if (nextButton) {
+        nextButton.replaceWith(nextButton.cloneNode(true));
+        const newNextButton = container.querySelector('.next');
+        newNextButton.addEventListener('click', () => {
+            const isRTL = document.documentElement.lang === 'he';
+            if (isRTL) {
+                // In RTL, right button (next button) moves to previous slide (positive direction)
+                if (currentPosition < 0) {
+                    moveSlider(currentPosition + slideWidth);
+                }
+            } else {
+                // In LTR, next button moves forward (negative direction)
+                const nextPosition = currentPosition - slideWidth;
+                if (nextPosition >= maxPosition) {
+                    moveSlider(nextPosition);
+                }
+            }
+        });
+    }
+
+    updateNavButtons();
+    
+    // Force slider to update its height for immediate application
+    slider.offsetHeight;
 }
 
 // Make functions available globally
