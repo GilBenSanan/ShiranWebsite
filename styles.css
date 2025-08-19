@@ -1365,7 +1365,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
     color: white;
     padding: 0.5rem 0;
     overflow: hidden;
@@ -3811,7 +3811,7 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
     color: white;
     padding: 0.5rem 0;
     overflow: hidden;
