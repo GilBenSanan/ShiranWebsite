@@ -140,7 +140,7 @@ window.translations = {
             stats: {
                 studentsNumber: "500+",
                 studentsTaught: "Students Taught",
-                lecturesNumber: "50+",
+                lecturesNumber: "150+",
                 lecturesDelivered: "Lectures Delivered",
                 institutionsNumber: "15+",
                 institutions: "Educational Institutions"
@@ -442,7 +442,7 @@ window.translations = {
             stats: {
                 studentsNumber: "500+",
                 studentsTaught: "סטודנטים לימדתי",
-                lecturesNumber: "50+",
+                lecturesNumber: "150+",
                 lecturesDelivered: "הרצאות העברתי",
                 institutionsNumber: "15+",
                 institutions: "מוסדות חינוך"
@@ -514,13 +514,13 @@ window.translations = {
                 },
                 neuroimaging: {
                     title: "טכניקות מתקדמות לדימות מוח",
-                    description: "שיטות חדשניות לדימות מוח חושפות תובנות חדשות על תהליכים קוגניטיביים ומסלולים עצביים.",
+                    description: "שיטות חדשניות להדמיית מוח חושפות תובנות חדשות לגבי תהליכים קוגניטיביים ומסלולים עצביים.",
                     type: "מאמר מחקר",
                     source: "ScienceDirect"
                 },
                 neuropharmacology: {
                     title: "התקדמות בנוירופארמקולוגיה",
-                    description: "מחקר מתקדם על כימיה של המוח והתערבויות פרמקולוגיות לשיפור קוגניטיבי.",
+                    description: "מחקר חדשני על כימיה של המוח והתערבויות פרמקולוגיות לשיפור קוגניטיבי.",
                     type: "מאמר מחקר",
                     source: "ScienceDirect"
                 }

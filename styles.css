@@ -6545,6 +6545,8 @@ img[src*="shenkar.png"] {
 
 .about-stats {
     grid-area: stats !important;
+    margin-top: -7rem !important;
+    align-self: start !important;
 }
 
 .educational-institutions {
@@ -6689,6 +6691,128 @@ img[src*="shenkar.png"] {
 
 .hero-subtitle {
     font-size: 1.6rem !important;
+}
+
+/* Modern Statistics Cards */
+.stat-item {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%) !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 2rem 1.5rem !important;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3) !important;
+    transform: translateY(0) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.4) !important;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.stat-number {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+    position: relative !important;
+    z-index: 2 !important;
+    letter-spacing: -2px !important;
+}
+
+.stat-label {
+    font-size: 1rem !important;
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Different gradient colors for each stat - website color scheme */
+.stat-item:nth-child(1) {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%) !important;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3) !important;
+}
+
+.stat-item:nth-child(2) {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3) !important;
+}
+
+.stat-item:nth-child(3) {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3) !important;
+}
+
+.stat-item:nth-child(1):hover {
+    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.4) !important;
+}
+
+.stat-item:nth-child(2):hover {
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4) !important;
+}
+
+.stat-item:nth-child(3):hover {
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Mobile adjustments for modern stats */
+@media (max-width: 768px) {
+    .stat-item {
+        padding: 1.5rem 1rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .stat-number {
+        font-size: 2.8rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* English version only - match Hebrew cube size and move right - DESKTOP ONLY */
+@media (min-width: 769px) {
+    html[lang="en"] .about-stats {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        max-width: 200px !important;
+        margin-left: auto !important;
+    }
+
+    html[lang="en"] .stat-item {
+        width: 100% !important;
+        min-height: 140px !important;
+        max-width: 200px !important;
+        padding: 1.2rem 1rem !important;
+        border-radius: 20px !important;
+    }
+}
+
+/* Hide stats cubes on mobile for English */
+@media (max-width: 768px) {
+    html[lang="en"] .about-stats {
+        display: none !important;
+    }
 }
 
 /* Mobile fixes */
