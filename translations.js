@@ -210,11 +210,17 @@ window.translations = {
                     type: "Expert Q&A",
                     source: "Davidson Institute"
                 },
-                research: {
-                    title: "New Research on Brain Function",
-                    description: "Latest discoveries on how the brain processes information and shapes memories",
+                neuroimaging: {
+                    title: "Advanced Neuroimaging Techniques",
+                    description: "Innovative brain imaging methods reveal new insights into cognitive processes and neural pathways.",
                     type: "Research Article",
-                    source: "Scientific Journal"
+                    source: "ScienceDirect"
+                },
+                neuropharmacology: {
+                    title: "Neuropharmacological Advances",
+                    description: "Cutting-edge research on brain chemistry and pharmacological interventions for cognitive enhancement.",
+                    type: "Research Article",
+                    source: "ScienceDirect"
                 }
             }
         },
@@ -506,11 +512,17 @@ window.translations = {
                     type: "שאלות ותשובות מומחה",
                     source: "מכון דוידסון"
                 },
-                research: {
-                    title: "מחקר חדש על תפקוד המוח",
-                    description: "גילויים חדשים על איך המוח מעבד מידע ומעצב זיכרונות",
+                neuroimaging: {
+                    title: "טכניקות מתקדמות לדימות מוח",
+                    description: "שיטות חדשניות לדימות מוח חושפות תובנות חדשות על תהליכים קוגניטיביים ומסלולים עצביים.",
                     type: "מאמר מחקר",
-                    source: "כתב עת מדעי"
+                    source: "ScienceDirect"
+                },
+                neuropharmacology: {
+                    title: "התקדמות בנוירופארמקולוגיה",
+                    description: "מחקר מתקדם על כימיה של המוח והתערבויות פרמקולוגיות לשיפור קוגניטיבי.",
+                    type: "מאמר מחקר",
+                    source: "ScienceDirect"
                 }
             }
         },

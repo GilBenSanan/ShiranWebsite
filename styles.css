@@ -900,7 +900,7 @@ html[lang="he"] .hero-tagline * {
 .gallery-photo-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -1580,7 +1580,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
 .professional-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -2145,7 +2145,7 @@ body.rtl .publication-meta span {
 .gallery-photo-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -4075,7 +4075,7 @@ main {
 .professional-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -4591,7 +4591,7 @@ body.rtl .publication-meta span {
 .gallery-photo-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -6523,6 +6523,80 @@ img[src*="shenkar.png"] {
     margin-top: -0.5rem !important;
 }
 
+/* Make publication titles smaller */
+.publication-card h3 {
+    font-size: 1.25rem !important;
+}
+
+/* Restructure about section layout */
+.about-content {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 2rem !important;
+    grid-template-areas: 
+        "text stats"
+        "institutions institutions" !important;
+}
+
+.about-text {
+    grid-area: text !important;
+}
+
+.about-stats {
+    grid-area: stats !important;
+}
+
+.educational-institutions {
+    grid-area: institutions !important;
+    margin-top: 1rem !important;
+}
+
+/* Display all 4 institution logos in 1 row without scrolling */
+.institutions-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+/* Reduce spacing under Educational Institutions section */
+.educational-institutions {
+    padding-bottom: 2rem !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Make institution items flexible */
+.institution-item {
+    flex: 1 1 25% !important;
+    max-width: 25% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* Desktop only - align institution icons from start */
+@media (min-width: 769px) {
+    .institutions-grid {
+        justify-content: flex-start !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        gap: 1rem !important;
+        padding: 0 !important;
+    }
+    
+    .educational-institutions {
+        display: block !important;
+    }
+}
+
 /* Style for testimonial image */
 .testimonial-image {
     width: 100%;
@@ -6533,6 +6607,61 @@ img[src*="shenkar.png"] {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: block;
     margin: 0 auto;
+}
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+    /* Hide stats on mobile */
+    .about-stats {
+        display: none !important;
+    }
+    
+    /* Single column layout */
+    .about-content {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: 
+            "text"
+            "institutions" !important;
+    }
+    
+    /* Fix text cutting */
+    .about-text {
+        max-width: 95vw !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    .about-text h3,
+    .about-text p {
+        max-width: 100% !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* Mobile institution layout - vertical stack */
+    .institutions-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+    }
+    
+    .institution-item {
+        width: 80% !important;
+        max-width: 300px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    /* Hide last 2 institution icons on mobile */
+    .institution-item:nth-child(3),
+    .institution-item:nth-child(4) {
+        display: none !important;
+    }
 }
 
 .testimonial-card {
