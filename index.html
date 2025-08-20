@@ -455,50 +455,17 @@
                 <div class="slider testimonials-slider">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <p data-translate="testimonials.cards.sarah.content"></p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4 data-translate="testimonials.cards.sarah.author"></h4>
-                                <span data-translate="testimonials.cards.sarah.role"></span>
-                            </div>
+                            <img src="recommendation/reco_1.png" alt="Student Recommendation 1" class="testimonial-image" onclick="openTestimonialPopup(this.src, 'Student Recommendation 1')">
                         </div>
                     </div>
-                    
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <p data-translate="testimonials.cards.rachel.content"></p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4 data-translate="testimonials.cards.rachel.author"></h4>
-                                <span data-translate="testimonials.cards.rachel.role"></span>
-                            </div>
+                            <img src="recommendation/reco_2.png" alt="Student Recommendation 2" class="testimonial-image" onclick="openTestimonialPopup(this.src, 'Student Recommendation 2')">
                         </div>
                     </div>
-                    
-                    
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <p data-translate="testimonials.cards.david.content"></p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4 data-translate="testimonials.cards.david.author"></h4>
-                                <span data-translate="testimonials.cards.david.role"></span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p data-translate="testimonials.cards.emma.content"></p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4 data-translate="testimonials.cards.emma.author"></h4>
-                                <span data-translate="testimonials.cards.emma.role"></span>
-                            </div>
+                            <img src="recommendation/reco_3.png" alt="Student Recommendation 3" class="testimonial-image" onclick="openTestimonialPopup(this.src, 'Student Recommendation 3')">
                         </div>
                     </div>
                 </div>
@@ -508,6 +475,14 @@
             </div>
         </div>
     </section>
+
+    <!-- Testimonial Popup -->
+    <div id="testimonialPopup" class="testimonial-popup" onclick="closeTestimonialPopup()">
+        <div class="testimonial-popup-content" onclick="event.stopPropagation()">
+            <span class="testimonial-popup-close" onclick="closeTestimonialPopup()">&times;</span>
+            <img id="testimonialPopupImage" src="" alt="" class="testimonial-popup-image">
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">

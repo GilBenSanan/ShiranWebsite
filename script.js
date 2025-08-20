@@ -1252,3 +1252,28 @@ window.toggleLanguage = toggleLanguage;
 window.loadGalleryItems = loadGalleryItems;
 window.openLightbox = openLightbox;
 window.initializeSlider = initializeSlider;
+
+// Testimonial Popup Functions
+function openTestimonialPopup(imageSrc, title) {
+    const popup = document.getElementById('testimonialPopup');
+    const popupImage = document.getElementById('testimonialPopupImage');
+    
+    popupImage.src = imageSrc;
+    popupImage.alt = title;
+    
+    popup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeTestimonialPopup() {
+    const popup = document.getElementById('testimonialPopup');
+    popup.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close popup with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeTestimonialPopup();
+    }
+});

@@ -91,7 +91,7 @@ window.translations = {
             section7: {
                 title: "7. Contact Information",
                 intro: "For privacy-related inquiries, contact:",
-                email: "Email: ofir.shiran@email.com"
+                email: "Email: shiran.ofir@gmail.com"
             }
         },
         cookieConsent: {
@@ -259,7 +259,7 @@ window.translations = {
             subtitle: "Ready to book a lecture or have questions? Let's connect!",
             info: {
                 title: "Contact Information",
-                email: "ofir.shiran@email.com"
+                email: "shiran.ofir@gmail.com"
             },
             social: {
                 title: "Follow Me"
@@ -387,7 +387,7 @@ window.translations = {
             section7: {
                 title: "7. פרטי התקשרות",
                 intro: "לשאלות בנושא פרטיות, צרו קשר:",
-                email: "דואר אלקטרוני: ofir.shiran@email.com"
+                email: "דואר אלקטרוני: shiran.ofir@gmail.com"
             }
         },
         cookieConsent: {
@@ -555,7 +555,7 @@ window.translations = {
             subtitle: "מעוניינים להזמין הרצאה או יש לכם שאלות? בואו נדבר!",
             info: {
                 title: "פרטי התקשרות",
-                email: "ofir.shiran@email.com"
+                email: "shiran.ofir@gmail.com"
             },
             social: {
                 title: "עקבו אחרי"
