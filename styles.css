@@ -137,7 +137,7 @@ body {
 
 .a11y-header {
     background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    color: white;
+    color: #1e3a8a;
     padding: 1.5rem;
     border-radius: 12px 12px 0 0;
     display: flex;
@@ -154,7 +154,7 @@ body {
 .a11y-close {
     background: none;
     border: none;
-    color: white;
+    color: #1e3a8a;
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -338,12 +338,12 @@ body {
 
 .a11y-btn:hover {
     background: #2563eb;
-    color: white;
+    color: #1e3a8a;
 }
 
 .a11y-btn.active {
     background: #2563eb;
-    color: white;
+    color: #1e3a8a;
 }
 
 /* High Contrast Mode */
@@ -419,7 +419,7 @@ body.font-size-smallest {
     top: -40px;
     left: 0;
     background: #000;
-    color: white;
+    color: #1e3a8a;
     padding: 8px;
     z-index: 100;
     transition: top 0.3s;
@@ -1372,8 +1372,8 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-    color: white;
+    background: url('background1.png') center/cover no-repeat;
+    color: #1e3a8a;
     padding: 0.5rem 0;
     overflow: hidden;
 }
@@ -1438,7 +1438,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.1;
-    color: white;
+    color: #1e3a8a;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -1446,7 +1446,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     line-height: 1.4;
-    color: #e0e7ff;
+    color: #1e3a8a;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -1454,7 +1454,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     line-height: 1.5;
-    color: #c7d2fe;
+    color: #1e3a8a;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -1463,7 +1463,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
     align-items: center;
     gap: 0.5rem;
     background: #10b981;
-    color: white;
+    color: #1e3a8a;
     padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;
@@ -1527,7 +1527,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
 
 .btn-primary {
     background-color: #00c853;
-    color: white;
+    color: #1e3a8a;
     box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
     font-size: 1.2rem;
     padding: 1rem 2rem;
@@ -1549,7 +1549,7 @@ body.rtl .testimonials-slider-container .slider-nav-button.next i {
 
 .btn-secondary:hover {
     background-color: #2563eb;
-    color: white;
+    color: #1e3a8a;
     transform: translateY(-2px);
 }
 
@@ -1710,7 +1710,7 @@ html[lang="he"] .section-header p,
 }
 
 .expertise-areas li i {
-    color: #10b981;
+    color: #1e3a8a;
     margin-right: 0.75rem;
     font-size: 1.1rem;
 }
@@ -2006,7 +2006,7 @@ body.rtl .stat-item {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    color: white;
+    color: #1e3a8a;
     font-size: 2rem;
 }
 
@@ -2242,7 +2242,7 @@ body.rtl .publication-meta span {
     right: 10px;
     background: #ef4444;
     border: none;
-    color: white;
+    color: #1e3a8a;
     font-size: 1.5rem;
     width: 40px;
     height: 40px;
@@ -2289,7 +2289,7 @@ body.rtl .publication-meta span {
 }
 
 .lightbox-error {
-    color: white;
+    color: #1e3a8a;
     font-size: 1.2rem;
     text-align: center;
     padding: 2rem;
@@ -2433,7 +2433,7 @@ body.rtl .publication-meta span {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    color: white;
+    color: #1e3a8a;
     font-size: 2rem;
 }
 
@@ -2468,7 +2468,7 @@ body.rtl .publication-meta span {
 }
 
 .publication-meta i {
-    color: #10b981;
+    color: #1e3a8a;
 }
 
 .publication-source {
@@ -2628,7 +2628,7 @@ body.rtl .publication-meta span {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #1e3a8a;
     text-decoration: none;
     font-size: 1.2rem;
     transition: all 0.3s ease;
@@ -2780,7 +2780,7 @@ body.rtl .publication-meta span {
 
 .a11y-apply-btn {
     background: #475569;
-    color: white;
+    color: #1e3a8a;
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 6px;
@@ -3041,7 +3041,7 @@ body.rtl .publication-meta span {
 /* Footer */
 .footer {
     background-color: #1e293b;
-    color: white;
+    color: #1e3a8a;
     padding: 40px 0 20px;
 }
 
@@ -3055,7 +3055,7 @@ body.rtl .publication-meta span {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: white;
+    color: #1e3a8a;
 }
 
 .footer-section p {
@@ -3867,8 +3867,8 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-    color: white;
+    background: url('background1.png') center/cover no-repeat;
+    color: #1e3a8a;
     padding: 0.5rem 0;
     overflow: hidden;
 }
@@ -3933,7 +3933,7 @@ main {
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.1;
-    color: white;
+    color: #1e3a8a;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -3941,7 +3941,7 @@ main {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     line-height: 1.4;
-    color: #e0e7ff;
+    color: #1e3a8a;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -3949,7 +3949,7 @@ main {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     line-height: 1.5;
-    color: #c7d2fe;
+    color: #1e3a8a;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -3958,7 +3958,7 @@ main {
     align-items: center;
     gap: 0.5rem;
     background: #10b981;
-    color: white;
+    color: #1e3a8a;
     padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;
@@ -4022,7 +4022,7 @@ main {
 
 .btn-primary {
     background-color: #00c853;
-    color: white;
+    color: #1e3a8a;
     box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
     font-size: 1.2rem;
     padding: 1rem 2rem;
@@ -4044,7 +4044,7 @@ main {
 
 .btn-secondary:hover {
     background-color: #2563eb;
-    color: white;
+    color: #1e3a8a;
     transform: translateY(-2px);
 }
 
@@ -4205,7 +4205,7 @@ html[lang="he"] .section-header p,
 }
 
 .expertise-areas li i {
-    color: #10b981;
+    color: #1e3a8a;
     margin-right: 0.75rem;
     font-size: 1.1rem;
 }
@@ -4452,7 +4452,7 @@ body.rtl .stat-item {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    color: white;
+    color: #1e3a8a;
     font-size: 2rem;
 }
 
@@ -4688,7 +4688,7 @@ body.rtl .publication-meta span {
     right: 10px;
     background: #ef4444;
     border: none;
-    color: white;
+    color: #1e3a8a;
     font-size: 1.5rem;
     width: 40px;
     height: 40px;
@@ -4735,7 +4735,7 @@ body.rtl .publication-meta span {
 }
 
 .lightbox-error {
-    color: white;
+    color: #1e3a8a;
     font-size: 1.2rem;
     text-align: center;
     padding: 2rem;
@@ -4879,7 +4879,7 @@ body.rtl .publication-meta span {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    color: white;
+    color: #1e3a8a;
     font-size: 2rem;
 }
 
@@ -4914,7 +4914,7 @@ body.rtl .publication-meta span {
 }
 
 .publication-meta i {
-    color: #10b981;
+    color: #1e3a8a;
 }
 
 .publication-source {
@@ -5074,7 +5074,7 @@ body.rtl .publication-meta span {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #1e3a8a;
     text-decoration: none;
     font-size: 1.2rem;
     transition: all 0.3s ease;
@@ -5226,7 +5226,7 @@ body.rtl .publication-meta span {
 
 .a11y-apply-btn {
     background: #475569;
-    color: white;
+    color: #1e3a8a;
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 6px;
@@ -5487,7 +5487,7 @@ body.rtl .publication-meta span {
 /* Footer */
 .footer {
     background-color: #1e293b;
-    color: white;
+    color: #1e3a8a;
     padding: 40px 0 20px;
 }
 
@@ -5501,7 +5501,7 @@ body.rtl .publication-meta span {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: white;
+    color: #1e3a8a;
 }
 
 .footer-section p {
@@ -6607,6 +6607,88 @@ img[src*="shenkar.png"] {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: block;
     margin: 0 auto;
+}
+
+/* Lecture cards background images - half slide coverage */
+.lecture-card {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.lecture-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+/* Specific background images for each lecture */
+.lecture-card:nth-child(1)::before {
+    background-image: url('lecture_background/הזכרון במוחנו.png');
+}
+
+.lecture-card:nth-child(2)::before {
+    background-image: url('lecture_background/המח החולם.png');
+}
+
+.lecture-card:nth-child(3)::before {
+    background-image: url('lecture_background/פעולות המח.png');
+}
+
+.lecture-card:nth-child(4)::before {
+    background-image: url('lecture_background/נורופלסטיות.png');
+}
+
+/* Ensure text content appears above background */
+.lecture-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hide lecture icons */
+.lecture-icon {
+    display: none !important;
+}
+
+/* Make lecture text darker - high specificity */
+.lectures-slider .lecture-card h3,
+.lecture-card h3[data-translate] {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+.lectures-slider .lecture-card p,
+.lecture-card p[data-translate] {
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+.lectures-slider .lecture-card .lecture-meta span,
+.lecture-card .lecture-meta span,
+.lecture-card .audience,
+.lecture-card .format {
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+/* Make hero text bigger */
+.hero-tagline {
+    font-size: 2rem !important;
+}
+
+.hero-main-title {
+    font-size: 4.5rem !important;
+}
+
+.hero-subtitle {
+    font-size: 1.6rem !important;
 }
 
 /* Mobile fixes */
