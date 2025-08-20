@@ -396,7 +396,7 @@ function applyAccessibilitySettings(closeOverlay = true) {
     if (help) {
         showHelpLayer();
         changes.push('Help layer enabled');
-    } else {
+                } else {
         hideHelpLayer();
         changes.push('Help layer disabled');
     }
@@ -582,9 +582,9 @@ function setupEnhancedKeyboardNavigation() {
                 e.preventDefault();
                 button.click();
             }
+            });
         });
-    });
-
+        
     // Add keyboard support for gallery
     const galleryButtons = document.querySelectorAll('.gallery-nav-button');
     galleryButtons.forEach(button => {
@@ -1158,7 +1158,7 @@ function initializeSlider(containerSelector, slideSelector) {
     const isMobile = window.innerWidth <= 768;
     const visibleSlides = isMobile ? 1 : 3;
     
-    const slideWidth = slides[0].offsetWidth + 32; // width + gap
+        const slideWidth = slides[0].offsetWidth + 32; // width + gap
     const maxPosition = -(Math.max(0, slides.length - visibleSlides) * slideWidth);
     
     // Set initial position based on current language
@@ -1176,72 +1176,72 @@ function initializeSlider(containerSelector, slideSelector) {
         console.log('LTR initialization - starting from left, position:', currentPosition);
     }
 
-    function updateNavButtons() {
-        const isRTL = document.documentElement.lang === 'he';
-        if (prevButton) {
-            const isPrevDisabled = isRTL ? currentPosition <= maxPosition : currentPosition === 0;
-            prevButton.style.opacity = isPrevDisabled ? '0.5' : '1';
-            prevButton.style.cursor = isPrevDisabled ? 'default' : 'pointer';
+        function updateNavButtons() {
+            const isRTL = document.documentElement.lang === 'he';
+            if (prevButton) {
+                const isPrevDisabled = isRTL ? currentPosition <= maxPosition : currentPosition === 0;
+                prevButton.style.opacity = isPrevDisabled ? '0.5' : '1';
+                prevButton.style.cursor = isPrevDisabled ? 'default' : 'pointer';
             prevButton.disabled = isPrevDisabled;
-        }
-        if (nextButton) {
-            const nextPosition = currentPosition - slideWidth;
-            const isNextDisabled = isRTL ? currentPosition === 0 : nextPosition < maxPosition;
-            nextButton.style.opacity = isNextDisabled ? '0.5' : '1';
-            nextButton.style.cursor = isNextDisabled ? 'default' : 'pointer';
+            }
+            if (nextButton) {
+                const nextPosition = currentPosition - slideWidth;
+                const isNextDisabled = isRTL ? currentPosition === 0 : nextPosition < maxPosition;
+                nextButton.style.opacity = isNextDisabled ? '0.5' : '1';
+                nextButton.style.cursor = isNextDisabled ? 'default' : 'pointer';
             nextButton.disabled = isNextDisabled;
+            }
         }
-    }
 
-    function moveSlider(position) {
-        currentPosition = Math.max(maxPosition, Math.min(0, position));
-        slider.style.transform = `translateX(${currentPosition}px)`;
-        updateNavButtons();
+        function moveSlider(position) {
+            currentPosition = Math.max(maxPosition, Math.min(0, position));
+            slider.style.transform = `translateX(${currentPosition}px)`;
+            updateNavButtons();
         console.log('Slider moved to position:', currentPosition);
-    }
+        }
 
     // Remove any existing event listeners
-    if (prevButton) {
+        if (prevButton) {
         prevButton.replaceWith(prevButton.cloneNode(true));
         const newPrevButton = container.querySelector('.prev');
         newPrevButton.addEventListener('click', () => {
-            const isRTL = document.documentElement.lang === 'he';
-            if (isRTL) {
+                const isRTL = document.documentElement.lang === 'he';
+                if (isRTL) {
                 // In RTL, left button (prev button) moves to next slide (negative direction)
                 const nextPosition = currentPosition - slideWidth;
                 if (nextPosition >= maxPosition) {
                     moveSlider(nextPosition);
-                }
-            } else {
+                    }
+                } else {
                 // In LTR, prev button moves backward (positive direction)
-                if (currentPosition < 0) {
-                    moveSlider(currentPosition + slideWidth);
+                    if (currentPosition < 0) {
+                        moveSlider(currentPosition + slideWidth);
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    if (nextButton) {
+        if (nextButton) {
         nextButton.replaceWith(nextButton.cloneNode(true));
         const newNextButton = container.querySelector('.next');
         newNextButton.addEventListener('click', () => {
-            const isRTL = document.documentElement.lang === 'he';
-            if (isRTL) {
+                const isRTL = document.documentElement.lang === 'he';
+                if (isRTL) {
                 // In RTL, right button (next button) moves to previous slide (positive direction)
-                if (currentPosition < 0) {
-                    moveSlider(currentPosition + slideWidth);
-                }
-            } else {
+                    if (currentPosition < 0) {
+                        moveSlider(currentPosition + slideWidth);
+                    }
+                } else {
                 // In LTR, next button moves forward (negative direction)
-                const nextPosition = currentPosition - slideWidth;
-                if (nextPosition >= maxPosition) {
-                    moveSlider(nextPosition);
+                    const nextPosition = currentPosition - slideWidth;
+                    if (nextPosition >= maxPosition) {
+                        moveSlider(nextPosition);
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    updateNavButtons();
+        updateNavButtons();
     
     // Force slider to update its height for immediate application
     slider.offsetHeight;
