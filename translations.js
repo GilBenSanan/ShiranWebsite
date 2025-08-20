@@ -211,14 +211,14 @@ window.translations = {
                     source: "Davidson Institute"
                 },
                 neuroimaging: {
-                    title: "Advanced Neuroimaging Techniques",
-                    description: "Innovative brain imaging methods reveal new insights into cognitive processes and neural pathways.",
+                    title: "fMRI of Number-Space Links in Synesthesia",
+                    description: "Cutting-edge research shows that people with synaesthesia automatically link numbers to space, revealing how the brain connects math and spatial thinking.",
                     type: "Research Article",
                     source: "ScienceDirect"
                 },
                 neuropharmacology: {
-                    title: "Neuropharmacological Advances",
-                    description: "Cutting-edge research on brain chemistry and pharmacological interventions for cognitive enhancement.",
+                    title: "Spatial Basis of Color-Space Synesthesia",
+                    description: "Cutting-edge research reveals that color-space synesthesia maps colors onto a stable spatial framework, bridging perception and spatial cognition..",
                     type: "Research Article",
                     source: "ScienceDirect"
                 }
@@ -513,14 +513,14 @@ window.translations = {
                     source: "מכון דוידסון"
                 },
                 neuroimaging: {
-                    title: "טכניקות מתקדמות לדימות מוח",
-                    description: "שיטות חדשניות להדמיית מוח חושפות תובנות חדשות לגבי תהליכים קוגניטיביים ומסלולים עצביים.",
+                    title: "סריקות fMRI של קשרי מספר-מרחב בסינסתזיה",
+                    description: "מחקר פורץ דרך מראה שאנשים עם סינסתזיה מקשרים באופן אוטומטי בין מספרים למרחב, וחושף כיצד המוח מחבר בין מתמטיקה לחשיבה מרחבית.",
                     type: "מאמר מחקר",
                     source: "ScienceDirect"
                 },
                 neuropharmacology: {
-                    title: "התקדמות בנוירופארמקולוגיה",
-                    description: "מחקר חדשני על כימיה של המוח והתערבויות פרמקולוגיות לשיפור קוגניטיבי.",
+                    title: "הבסיס המרחבי של סינסתזיה צבע-מרחב",
+                    description: "מחקר פורץ דרך מגלה שסינסתזיה צבע-מרחב ממפה צבעים למסגרת מרחבית יציבה, ובכך מחברת בין תפיסה לבין קוגניציה מרחבית.",
                     type: "מאמר מחקר",
                     source: "ScienceDirect"
                 }
