@@ -6815,6 +6815,45 @@ img[src*="shenkar.png"] {
     }
 }
 
+/* Make all footer text white */
+.footer {
+    color: white !important;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: white !important;
+}
+
+.footer-section p {
+    color: white !important;
+}
+
+.footer-section ul li {
+    color: white !important;
+}
+
+.footer-section ul li a {
+    color: white !important;
+}
+
+.footer-section ul li a:hover {
+    color: #e5e7eb !important;
+}
+
+.footer-bottom {
+    color: white !important;
+}
+
+/* Make social media icons white */
+.social-link i {
+    color: white !important;
+}
+
+.social-icons .fab {
+    color: white !important;
+}
+
 /* Mobile fixes */
 @media (max-width: 768px) {
     /* Hide stats on mobile */
