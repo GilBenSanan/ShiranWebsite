@@ -127,16 +127,12 @@ window.translations = {
         about: {
             title: "About Ofir",
             subtitle: "Passionate educator bridging the gap between complex neuroscience and curious young minds",
-            journeyTitle: "A Journey Through the Mind",
-            journeyText: "As a dedicated neuroscience lecturer, I specialize in making the complex world of brain science accessible and exciting for teenagers and university students. My passion lies in exploring how memory systems shape our daily lives and understanding the intricate functions of the human brain.",
+            journeyText: "How is your experience as a person in the world related to the brain function? When did you stop and stop thinking about one of the amazing systems that helps you and therefore to live the life? To explore how the brain interprets social experiences and builds relationships? On the way the brain makes decisions? Knows how to create complex feelings like love and loyalty? How does it remember everything?",
+            journeyTitle: "Ofir Shiran",
             backgroundText: "With extensive background in neuroscience education, I focus on creating engaging learning experiences that inspire students to pursue scientific inquiry. My teaching philosophy centers on making abstract concepts tangible through real-world examples and interactive demonstrations.",
-            expertiseTitle: "Areas of Expertise:",
-            expertise: {
-                1: "Memory Systems and Formation",
-                2: "Brain Anatomy and Neural Networks",
-                3: "Cognitive Functions and Behavior",
-                4: "Neuroplasticity and Learning"
-            },
+            backgroundText2: "In recent years I have given lectures and workshops on emotions and the body, intelligence, the social brain, the magic of memory, love, curiosity and creativity, music in our brains, as well as sleep and dreams. I repeatedly see that the impact of these sessions goes beyond the lecture hour and resonates into everyday life.",
+            backgroundText3: "My dream is to bring the complex world of neuroscience to all the curious and curious minds out there. I specialize in turning abstract concepts like neurons, amygdala, frontal cortex, and prefrontal cortex into clear and engaging ideas through real-world examples, interactive demonstrations, and experiments that spark curiosity.",
+            backgroundText4: "When we study the brain, we discover an inner world that never ceases to surprise and illuminate our everyday lives.",
             stats: {
                 studentsNumber: "500+",
                 studentsTaught: "Students Taught",
@@ -421,24 +417,20 @@ window.translations = {
             subtitle: "רגעים מתוך ההרצאות והסדנאות שלנו"
         },
         hero: {
-            title: "פותחים צוהר לעולם המרתק של הזיכרון ותפקוד המוח",
+            title: "הרצאות על המוח בגובה העיניים",
             name: "שירן אופיר",
-            subtitle: "אני מבטיחה לך: בזמן הקצר ביותר, תהפוך למוח-על!",
+            subtitle: "לגלות.להבין.לחוות",
             bookLecture: "הזמן הרצאה ↓"
         },
         about: {
             title: "שירן אופיר",
             subtitle: "מחברת בין מדע המוח המורכב לבין מוחות סקרנים וצעירים",
-            journeyTitle: "מסע בתוך המוח",
-            journeyText: "כמרצה מסורה למדעי המוח, אני מתמחה בהנגשת העולם המורכב של מדעי המוח לבני נוער וסטודנטים. התשוקה שלי היא לחקור כיצד מערכות זיכרון מעצבות את חיי היומיום שלנו ולהבין את התפקודים המורכבים של המוח האנושי.",
-            backgroundText: "עם רקע נרחב בחינוך מדעי המוח, אני מתמקדת ביצירת חוויות למידה מעניינות שמעוררות השראה בקרב תלמידים לחקור מדע. הפילוסופיה שלי בהוראה מתמקדת בהפיכת מושגים מופשטים למוחשיים באמצעות דוגמאות מהחיים והדגמות אינטראקטיביות.",
-            expertiseTitle: "תחומי התמחות:",
-            expertise: {
-                1: "מערכות זיכרון ויצירת זכרונות",
-                2: "אנטומיה של המוח ורשתות עצביות",
-                3: "תפקודים קוגניטיביים והתנהגות",
-                4: "נוירופלסטיות ולמידה"
-            },
+            journeyTitle: "שמי שירן אופיר",
+            journeyText: " עד כמה החוויה שלכם כאדם בעולם קשורה לתפקוד המוח? מתי עצרתם ועצרתן לחשוב על אחת המערכות המדהימות שעוזרות לכם ולכן לחיות את החיים? להרהר על איך המוח מפרש חוויות חברתיות ובונה מערכות יחסים? על הדרך בה המוח מקבל החלטות? יודע ליצור רגשות מורכבים כמו אהבה שייכות ונאמנות? איך הוא זוכר בכלל הכל?", 
+            backgroundText: "עם רקע נרחב בחינוך מדעי המוח, אני מתמקדת ביצירת חוויות למידה והקלישאה של ידע הוא כוח שינתה את חיי. ככל שלמדתי יותר על המערכות כך גם החיים שלי קיבלו מסגרת והבנה. תהליכים כמו קשב וזיכרון וגם חכמה, אהבה, יחסים חברתיים ורגשות הפכו למוחשיים בדמיוני. הם אפשרו לי להבין את עצמי יותר מהכל. המטרה של היא להדליק את ניצוץ הדמיון אצל כל מי שרוצה לדעת עוד ועוד על המוח!",
+            backgroundText2:"בשנים האחרונות העברתי הרצאות וסדנאות על רגשות וגוף, אינטליגנציה, המוח החברתי, הקסם של הזיכרון, אהבה, סקרנות ויצירתיות, המוזיקה במוחנו וכן שינה וחלומות. אני רואה שוב ושוב שההשפעה של המפגשים האלה חורגת מעבר לשעת ההרצאה ומהדהדת גם לתוך חיי היומיום.",
+            backgroundText3:"החלום שלי הוא להנגיש את העולם המורכב של מדעי המוח לכל הסקרנים והסקרניות שם בחוץ. אני מתמחה בלהפוך מושגים מופשטים כמו נוירונים, אמיגדלה וקורטקס פרה פרונטלי לרעיונות ברורים וחיים באמצעות דוגמאות מהיום יום, הדגמות אינטראקטיביות וסיפוהמטרה שלי היא להדליק את ניצוץ הדמיון אצל כל מי שרוצה לדעת עוד ועוד על המוח!רים על ניסויים שסוחפים את הדמיון.",
+            backgroundText4:"כשאנחנו לומדים את המוח אנחנו מגלים עולם פנימי שלא מפסיק להפתיע ולהאיר את חיי היומיום.",
             stats: {
                 studentsNumber: "500+",
                 studentsTaught: "סטודנטים לימדתי",

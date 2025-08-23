@@ -6533,7 +6533,7 @@ img[src*="shenkar.png"] {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     grid-template-rows: auto auto !important;
-    gap: 2rem !important;
+    gap: 0.05rem !important;
     grid-template-areas: 
         "text stats"
         "institutions institutions" !important;
